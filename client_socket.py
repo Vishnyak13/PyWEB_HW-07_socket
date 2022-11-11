@@ -1,12 +1,12 @@
 import socket
 
 PORT = 5500
+TCP_IP = '127.0.0.1'
 
 
-def run_client():
-    ip = socket.gethostbyname(socket.gethostname())
+def run_client(ip, port):
     client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_sock.connect((ip, PORT))
+    client_sock.connect((ip, port))
     message = input('->>: ').casefold().strip()
     try:
         while True:
@@ -23,5 +23,5 @@ def run_client():
 
 
 if __name__ == '__main__':
-    run_client()
+    run_client(TCP_IP, PORT)
 

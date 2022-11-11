@@ -1,14 +1,14 @@
 import socket
 
 PORT = 5500
+TCP_IP = '127.0.0.1'
 
 
-def run_server():
-    ip = socket.gethostbyname(socket.gethostname())
+def run_server(ip, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind((ip, PORT))
+    sock.bind((ip, port))
     sock.listen(1)
-    print(f'Server is ready on {ip}:{PORT}')
+    print(f'Server is ready on {ip}:{port}')
     connection, address = sock.accept()
     try:
         while True:
@@ -26,4 +26,4 @@ def run_server():
 
 
 if __name__ == '__main__':
-    run_server()
+    run_server(TCP_IP, PORT)
