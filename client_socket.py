@@ -7,10 +7,10 @@ TCP_IP = '127.0.0.1'
 def run_client(ip, port):
     client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_sock.connect((ip, port))
-    message = input('->>: ').casefold().strip()
+    message = input('->>: ')
     try:
         while True:
-            if message == 'exit' or message == '':
+            if message == 'exit'.casefold().strip() or message == ''.strip():
                 break
             client_sock.send(message.encode('utf-8'))
             message_from_server = client_sock.recv(128)
