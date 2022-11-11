@@ -10,7 +10,7 @@ def run_client(ip, port):
     message = input('->>: ')
     try:
         while True:
-            if message == 'exit'.casefold().strip() or message == ''.strip():
+            if message.casefold().strip() == 'exit' or message.strip() == '':
                 break
             client_sock.send(message.encode('utf-8'))
             message_from_server = client_sock.recv(128)
